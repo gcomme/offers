@@ -19,17 +19,41 @@
    
 
 <form name="submit-to-google-sheet">
-    <input class="iput" type="checkbox" name="E33" value="4500" />
+    
+    <input class="iput" type="checkbox" name="E33" value="33" />A
+<input class="iput" type="checkbox" name="E34" value="33"/>B
+<input class="iput" type="checkbox" name="E66" value="33" />C
+    
+ <br>
     
 <input name="Name" type="text" placeholder="Your Name" required>
     <input name="Phone" type="text" placeholder="Contact Number" required>
 <input name="Address" type="text" placeholder="Shipping Address" required>
-
 <input name="email" type="email" placeholder="Email" required>
+    <input name="Formname" type="text" value="Preorder1">
+    
+  <br>  
+         Item Count = <span id="result"></span> <br> 
+         Order Total = <span id="total"></span>   
+    
+    
+    <br><br> Hidden Fields
+    <input type="text" name="total" id="finall" placeholder="sum to values"/>  
+    <input type="text" name="count" id="final"  placeholder="No. of checked boxes"/>
     
     
     
-  <button type="submit">Send</button>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+  <button type="submit" onclick="window.location='/tyou';" >Send</button>
 </form>
 
     <div class="loading js-loading is-hidden">
@@ -74,7 +98,55 @@
         loading.classList.add('is-hidden')
       }, 500)
     }
+    
+    
+    
+    
+    
+    
+    
   </script>
+    
+    
+  <script>
+      
+      
+   
+    let total = 0;
+[...document.getElementsByClassName('iput')].forEach(function(item) {
+  item.addEventListener('change', function(e) {
+    if (e.target.checked) {
+      total += parseInt(e.target.value, 10)
+    } else {
+      total -= parseInt(e.target.value, 10)
+    }
+    document.getElementById('total').innerHTML = total
+    
+    document.getElementById("finall").value = total ;
+  })
+
+})
+
+ 
+ 
+ 
+
+      function showChecked(){
+		var length = document.querySelectorAll("input:checked").length,
+		text = "Total Number of Items Selected = "
+		
+    document.getElementById("result").textContent = length;
+		document.getElementById("final").value = length;
+}
+ document.querySelectorAll("input[type=checkbox]").forEach(i=>{
+  i.onclick = function(){
+  showChecked();
+ }
+});
+  
+      
+      </script>
+
 
 </body>
 </html>
