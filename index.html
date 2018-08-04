@@ -10,24 +10,71 @@
 
   <link rel="stylesheet" href="main.css">
   <script src="https://unpkg.com/prefixfree@1.0.0/prefixfree.min.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   
 </head>
 
 <style>
+.headr { background-color:#161616;}
+.logo { width:100px;}
 .form-container { }
 .hidden-fields { display:none;}
 .submit-buttom { background-color:black; padding:10px; width:100%; color:white; }
-.customer-cart{ text-align:center; font-size:15px; padding:5px; }
+.customer-cart{ text-align:left; font-size:15px; padding:5px;
+position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #eee;
+    color: black;}
+    
+    .customer-fields input { width:100%;}
+   
+  
+  input[type="checkbox"] {visibility: hidden;}
+
+
+
+input[type="checkbox"]:after {
+ 
+    content: "+SELECT"!important;
+    background-color:#eee;
+     visibility: visible;
+     margin-left: 284px;
+    padding: 10px 20px 10px 20px;
+  
+  
+  
+}
+
+input[type="checkbox"]:checked:after {
+    content: "SELECTED"!important;
+  font-size:15px;
+    background-color:green;
+  padding:10px 20px 10px 20px;
+    color:white;
+    
+}
+
+img {margin-top: 20px;}
+
+
+  
+
   
 </style>
 <body>
+<div class="container-fluid headr">
+<img class="img-responsive logo" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/02/OMG.jpg" >
+</div>
 
 
   <div class="form-container">
 	  
  
-	  <img src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2016/12/KISS-ME-Factory-2014-Antique-Gold-Tassel-Bracelet-Jewelry-Fashion-Charm-Bracelets-Bangles-for-Women.jpg" >
+	  
 
 <form name="submit-to-google-sheet">
     
@@ -38,90 +85,92 @@
 
 <img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp1.jpg">
 <input class="iput" type="checkbox" name="PP-1" value=" 1800 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp43.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp43.jpg">
 <input class="iput" type="checkbox" name="PP-43" value=" 1500 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp3.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp3.jpg">
 <input class="iput" type="checkbox" name="PP-3" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp5.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp5.jpg">
 <input class="iput" type="checkbox" name="PP-5" value=" 1900 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp6.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp6.jpg">
 <input class="iput" type="checkbox" name="PP-6" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp7.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp7.jpg">
 <input class="iput" type="checkbox" name="PP-7" value=" 1900 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp41.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp41.jpg">
 <input class="iput" type="checkbox" name="PP-41" value=" 1300 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp9.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp9.jpg">
 <input class="iput" type="checkbox" name="PP-9" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp40.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp40.jpg">
 <input class="iput" type="checkbox" name="PP-40" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp12.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp12.jpg">
 <input class="iput" type="checkbox" name="PP-12" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp14.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp14.jpg">
 <input class="iput" type="checkbox" name="PP-14" value=" 1950 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp27.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp27.jpg">
 <input class="iput" type="checkbox" name="PP-27" value=" 1950 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp16.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp16.jpg">
 <input class="iput" type="checkbox" name="PP-16" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp17.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp17.jpg">
 <input class="iput" type="checkbox" name="PP-17" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp18.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp18.jpg">
 <input class="iput" type="checkbox" name="PP-18" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp19.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp19.jpg">
 <input class="iput" type="checkbox" name="PP-19" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp26.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp26.jpg">
 <input class="iput" type="checkbox" name="PP-26" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp21.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp21.jpg">
 <input class="iput" type="checkbox" name="PP-21" value=" 2600 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp25.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp25.jpg">
 <input class="iput" type="checkbox" name="PP-25" value=" 2600 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp23.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp23.jpg">
 <input class="iput" type="checkbox" name="PP-23" value=" 1900 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp24.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp24.jpg">
 <input class="iput" type="checkbox" name="PP-24" value=" 1900 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp39.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp39.jpg">
 <input class="iput" type="checkbox" name="PP-39" value=" 1300 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp32.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp32.jpg">
 <input class="iput" type="checkbox" name="PP-32" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp38.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp38.jpg">
 <input class="iput" type="checkbox" name="PP-38" value=" 2000 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp36.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp36.jpg">
 <input class="iput" type="checkbox" name="PP-36" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp45.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp45.jpg">
 <input class="iput" type="checkbox" name="PP-45" value=" 1500 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp62.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp62.jpg">
 <input class="iput" type="checkbox" name="PP-62" value=" 1500 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp47.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp47.jpg">
 <input class="iput" type="checkbox" name="PP-47" value=" 1500 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp61.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp61.jpg">
 <input class="iput" type="checkbox" name="PP-61" value=" 1500 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp49.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp49.jpg">
 <input class="iput" type="checkbox" name="PP-49" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp51.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp51.jpg">
 <input class="iput" type="checkbox" name="PP-51" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp52.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp52.jpg">
 <input class="iput" type="checkbox" name="PP-52" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp53.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp53.jpg">
 <input class="iput" type="checkbox" name="PP-53" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp54.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp54.jpg">
 <input class="iput" type="checkbox" name="PP-54" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp55.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp55.jpg">
 <input class="iput" type="checkbox" name="PP-55" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp57.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp57.jpg">
 <input class="iput" type="checkbox" name="PP-57" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp58.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp58.jpg">
 <input class="iput" type="checkbox" name="PP-58" value=" 2200 " />
-<img class="img-responsive" src="www.omgjewelz.com/wp-content/uploads/2018/07/pp65.jpg">
+<img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp65.jpg">
 <input class="iput" type="checkbox" name="PP-65" value=" 1900 " />
+
 
 
 
 </div>
 <br>
-    
+<div class="customer-fields" >
 <input name="Name" type="text" placeholder="Your Name" required>
 <input name="Phone" type="text" placeholder="Contact Number" required>
 <input name="Address" type="text" placeholder="Shipping Address" required>
 <input name="email" type="email" placeholder="Email" required>
+</div>
     
     
 <br>
