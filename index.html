@@ -17,17 +17,6 @@
 </head>
 
 <style>
-.prodcut-name {
-    font-size: 15px;
-    letter-spacing: 1px;
-}
-
-.prodcut-price {
-    font-size: 15px;
-    letter-spacing: 1px;
-    float: left;
-}	
-	
 .ccount { font-size:20px;}
 .ttotal { font-size:20px;}
 .ccc { font-size:15px;}
@@ -48,7 +37,9 @@ position: fixed;
     .customer-fields input { width:100%;}
    
   
- 
+  
+
+img {margin-top: 20px;margin-bottom: 20px;}
 
 
   
@@ -73,10 +64,8 @@ position: fixed;
     
 <div class="prodcuts">
 
-<div class="prodcut">	
 <img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp1.jpg">
-	<div class="prodcut-name">Blue Luxury Necklace</div> <div class="prodcut-price">Rs 1800 </div>
-	<input class="iput" type="checkbox" name="PP-1" value=" 1800 " /></div><hr> 
+<input class="iput" type="checkbox" name="PP-1" value=" 1800 " /><hr>
 <img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp43.jpg">
 <input class="iput" type="checkbox" name="PP-43" value=" 1500 " /><hr>
 <img class="img-responsive" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/pp3.jpg">
@@ -157,16 +146,25 @@ position: fixed;
 
 </div>
 <br>
-<div class="customer-fields" >
+<div id="" class="customer-fields" >
 <input name="Name" type="text" placeholder="Your Name" required>
 <input name="Phone" type="text" placeholder="Contact Number" required>
 <input name="Address" type="text" placeholder="Shipping Address" required>
 <input name="email" type="email" placeholder="Email" required>
 </div>
     
+  
     
 <br>
-<div class="customer-cart" >
+
+
+
+
+<div id="b" style="display:none" class="customer-cart b" >
+  
+  
+  
+  
   <div class="row">
     <div class="col-xs-6 ccount"> <span id="result"></span> <br> <div class="ccc">Items Selcted</div> </div>
     <div class="col-xs-6 ttotal"> Rs <span id="total"></span> <br><div class="ttt">Your Total</div></div>
@@ -174,12 +172,13 @@ position: fixed;
     
   </div>
   
-  <!-- omit
-         You have selected <span id="result"></span> items.Your order total is Rs <span id="total"></span>
-         <button class="submit-buttom" type="submit" >Send</button> -->
-         
-         
-         </div>
+ </div>
+<div id="a" class="customer-cart a"  >
+  <h4>Select atleast 2 items to continue. </h4>
+    
+  </div>
+  
+ </div>
     
     
     <br><br>
@@ -201,7 +200,7 @@ position: fixed;
     
     
     
-  <button class="submit-buttom" type="submit" >Send</button>
+  
 </form>
 
 <div class="loading js-loading is-hidden">
@@ -319,6 +318,30 @@ function checkboxClick() {
 
       
       </script>
+      
+ <script>
+    var a = document.getElementById("a");
+    var b = document.getElementById('b');
+    var checked = document.querySelectorAll("input.iput:checked").length;
+    var checkboxes = document.querySelectorAll("input.iput");
+    for(let i = 0; i < checkboxes.length; i++){
+      checkboxes[i].addEventListener("click", function(e){
+        if(this.checked){
+          checked++;
+          if(checked>=2){
+            a.style.display = "none";
+            b.style.display = "block";
+          }
+        } else {
+           checked--;
+          if(checked<2){
+            a.style.display = "block";
+            b.style.display = "none";
+          }
+        }
+      });
+    }
+    </script>
 
 
 </body>
