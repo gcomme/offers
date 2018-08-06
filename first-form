@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Form To Google Sheets Demo</title>
+  <meta name="description" content="Store HTML form submissions in Google Sheets">
+  <link href="./favicon.png" rel="shortcut icon">
+
+  <link rel="stylesheet" href="main.css">
+  <script src="https://unpkg.com/prefixfree@1.0.0/prefixfree.min.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+</head>
+
+<style>
+.ccount { font-size:20px;}
+.ttotal { font-size:20px;}
+.ccc { font-size:15px;}
+.ttt { font-size:15px;}
+.headr { background-color:black;}
+.logo { width:100px;}
+.form-container { }
+.hidden-fields { display:none;}
+.submit-buttom { background-color:black; padding:10px; width:100%; color:white; }
+.customer-cart{ text-align:center; font-size:15px; padding:5px;
+position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #eee;
+    color: black;}
+    
+.customer-fields input { width:100%;}
+.cart-title {font-size:20px;padding-left:5px;}
+.cart-under {font-size:15px; padding-left:5px;}
+
+
+.product { margin-bottom: 15px;
+    border-bottom-color: #eee;
+    border-bottom-width: 0.1px;
+    border-bottom-style: ridge; }
+    
+.product-name { margin-left:10px;letter-spacing:1.5px;}
+.product-price { margin-left:10px;margin-bottom:10px; letter-spacing:1px;}
+    
+    
+input[type="checkbox"] {visibility: hidden; float:right;}
+
+input[type="checkbox"]:after {
+ 
+    content: "+SELECT"!important;
+    background-color:#eee;
+     visibility: visible;
+     margin-right: 10px;
+    padding: 10px;
+    float:right; font-weight:300;}
+  
+  input[type="checkbox"]:checked:after {
+    content: "SELECTED"!important;
+  font-size:15px;
+    background-color:green;
+  padding:10px;
+    color:white; font-weight:300;}
+
+
+ 
+   
+  
+  
+
+/* img {margin-top: 20px;margin-bottom: 20px;} */
+
+
+  
+
+  
+</style>
+<body>
+<div class="container-fluid headr">
+<img class="img-responsive logo" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/02/OMG.jpg" >
+</div>
+
+
+  <div class="form-container">
+	  
+ 
+	  
+
+<form name="submit-to-google-sheet"  onsubmit="return validation()">
+    
+<input class="hidden-fields" name="Formname" type="text" value="Preorder1"> <!-- ** MUST ENTER **  -->
+    
+    
+<div class="prodcuts">
+
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2015/07/n.jpg">
+<input class="iput" type="checkbox" name="E45" value="1000" /> <div class="product-name ">Crystal Water Drops</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2017/07/180901416488793151.jpg">
+<input class="iput" type="checkbox" name="E104" value="1000" /> <div class="product-name ">Peacock Jhumkay </div> <div class=" product-price "> Rs 2200</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG_20180729_144400-01.jpeg">
+<input class="iput" type="checkbox" name="NS2" value="1000" /> <div class="product-name ">Crystal Pearls Necklace</div> <div class=" product-price "> Rs 2800</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG_20180729_142914-01.jpeg">
+<input class="iput" type="checkbox" name="NS3" value="1000" /> <div class="product-name ">Ethnic Ruby Clip-ons</div> <div class=" product-price "> Rs 1700</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i2.wp.com/www.omgjewelz.com/wp-content/uploads/2016/05/E55-HQ.jpg">
+<input class="iput" type="checkbox" name="E06" value="1000" /> <div class="product-name ">Beige Earrings</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://s3.ap-south-1.amazonaws.com/omgimages/dscdd.jpg">
+<input class="iput" type="checkbox" name="E51" value="1000" /> <div class="product-name ">Peacock Earrings</div> <div class=" product-price "> Rs 1500</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2016/12/KISS-ME-Simple-Party-Ladies-Earrings-Latest-Fashion-Simulated-Pearls-Jewelry-Brand-Dangle-Earrings-1.jpg">
+<input class="iput" type="checkbox" name="E61 " value="1000" /> <div class="product-name ">Party Dangles</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://s3.ap-south-1.amazonaws.com/omgimages/dascc.jpg">
+<input class="iput" type="checkbox" name="NS1" value="1000" /> <div class="product-name ">Half Flower Earrings</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://s3.ap-south-1.amazonaws.com/omgimages/dsaaaacee.jpg">
+<input class="iput" type="checkbox" name="E66" value="1000" /> <div class="product-name ">Bird Hoops</div> <div class=" product-price "> Rs 1000</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2017/05/KISS-ME-New-Statement-Earrings-2017-Christmas-Hot-Sale-Geometric-Simulated-Pearls-Jewelry-Big-Earrings-1.jpg">
+<input class="iput" type="checkbox" name="E71 " value="1000" /> <div class="product-name ">Christmas Earrings</div> <div class=" product-price "> Rs 1600</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2017/07/19866651_1538464712891177_1453126706_n.jpg">
+<input class="iput" type="checkbox" name="E106 " value="1000" /> <div class="product-name ">Golden Wreath Earrings</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i2.wp.com/www.omgjewelz.com/wp-content/uploads/2017/07/19832706_1538464662891182_14092650_n.jpg">
+<input class="iput" type="checkbox" name="E105" value="1000" /> <div class="product-name ">Silver Wreath Earrings</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i2.wp.com/www.omgjewelz.com/wp-content/uploads/2016/12/KISS-ME-Women-Bijoux-Vintage-Stud-Earring-Acrylic-Pierced-Accessories-Antique-Gold-Plated-Blue-Earring-Jewelry-1.jpg">
+<input class="iput" type="checkbox" name="E77 " value="1000" /> <div class="product-name ">Acrylic Studs</div> <div class=" product-price "> Rs 995</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2016/06/13514278_1071875832883403_1454096252_n.jpg">
+<input class="iput" type="checkbox" name="E53 " value="1000" /> <div class="product-name ">Blue Ocean Earrings</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2017/07/838002031441573633.jpg">
+<input class="iput" type="checkbox" name="E101" value="1000" /> <div class="product-name ">Dome Jhumki</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i2.wp.com/www.omgjewelz.com/wp-content/uploads/2017/07/491033173-930317339.jpg">
+<input class="iput" type="checkbox" name="E102" value="1000" /> <div class="product-name ">Round Jhumki </div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/06/1394003971-1905876123.jpg">
+<input class="iput" type="checkbox" name="NS4" value="1000" /> <div class="product-name ">Long Drop Earrings</div> <div class=" product-price "> Rs 2000</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG_20180719_122110.jpg">
+<input class="iput" type="checkbox" name="NS5" value="1000" /> <div class="product-name ">Bird Dangles</div> <div class=" product-price "> Rs 1400</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i2.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG_20180719_122143.jpg">
+<input class="iput" type="checkbox" name="NS6" value="1000" /> <div class="product-name ">Turqoise Stone Earrings</div> <div class=" product-price "> Rs 1800</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i2.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG_20180719_122219.jpg">
+<input class="iput" type="checkbox" name="NS7" value="1000" /> <div class="product-name ">Green Tassels</div> <div class=" product-price "> Rs 1800</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://s3.ap-south-1.amazonaws.com/omgimages/Untitlefddd-2.jpg">
+<input class="iput" type="checkbox" name="NS8" value="1000" /> <div class="product-name ">Flying Bird Earrings</div> <div class=" product-price "> Rs 1500</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG-20180719-WA0000.jpg">
+<input class="iput" type="checkbox" name="NS9" value="1000" /> <div class="product-name ">White Crystal Earrings</div> <div class=" product-price "> Rs 1700</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://s3.ap-south-1.amazonaws.com/omgimages/Untitled-2.jpg">
+<input class="iput" type="checkbox" name="NS10" value="1000" /> <div class="product-name ">Geometric Earrings</div> <div class=" product-price "> Rs 1600</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://s3.ap-south-1.amazonaws.com/omgimages/dsas.jpg">
+<input class="iput" type="checkbox" name="NS11" value="1000" /> <div class="product-name ">Carved Flower Earrings</div> <div class=" product-price "> Rs 1750</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG-20180719-WA0008.jpg">
+<input class="iput" type="checkbox" name="NS12" value="1000" /> <div class="product-name ">Crystal Studs</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2016/12/Long-Alloy-Dazzle-Color-Imitation-Gems-Female-Tassel-Pendant-Necklace-Factory-Wholesale.jpg">
+<input class="iput" type="checkbox" name="N21" value="1000" /> <div class="product-name ">Alloy Dazzle </div> <div class=" product-price "> Rs 2500</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/06/97170514-424976882_01.jpg">
+<input class="iput" type="checkbox" name="NS13" value="1000" /> <div class="product-name ">Pink Beads Necklace</div> <div class=" product-price "> Rs 2500</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/06/1890678677820015211.jpg">
+<input class="iput" type="checkbox" name="NS14" value="1000" /> <div class="product-name ">Blue Beads Necklace</div> <div class=" product-price "> Rs 2500</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG-20180719-WA0011.jpg">
+<input class="iput" type="checkbox" name="NS15" value="1000" /> <div class="product-name ">Pearls Choker</div> <div class=" product-price "> Rs 2500</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG-20180719-WA0002.jpg">
+<input class="iput" type="checkbox" name="NS16" value="1000" /> <div class="product-name ">Multistone Bracelet </div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i1.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG-20180719-WA0003.jpg">
+<input class="iput" type="checkbox" name="NS17" value="1000" /> <div class="product-name ">Clear Stones Bracelet</div> <div class=" product-price "> Rs 1300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://i2.wp.com/www.omgjewelz.com/wp-content/uploads/2018/07/IMG-20180719-WA0005.jpg">
+<input class="iput" type="checkbox" name="NS18" value="1000" /> <div class="product-name ">Gold Crystal Bracelet </div> <div class=" product-price "> Rs 1400</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1t6R_I1uSBuNjSsplq6ze8pXaC/wing-yuk-tak-Earrings-for-Women-Geometric-Stud-Earrings-Fashion-Jewelry.jpg">
+<input class="iput" type="checkbox" name="NS19" value="1000" /> <div class="product-name ">Sea Green Earrings</div> <div class=" product-price "> Rs 1500</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1wkmRv1uSBuNjSsziq6zq8pXaY/wing-yuk-tak-Luxury-Romantic-Bohemia-Drop-Earrings-For-Women-Handwork-Jewelry-Copper-AAA-Cubic-Zirconia.jpg">
+<input class="iput" type="checkbox" name="NS20" value="1000" /> <div class="product-name ">Copper Jhumkis</div> <div class=" product-price "> Rs 2300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1.zExG1uSBuNjSsziq6zq8pXaF/wing-yuk-tak-Boho-Green-Gem-Earrings-For-Women-Bohemia-Copper-Inlay-Cubic-Zirconia-Dangle-Earring.jpg">
+<input class="iput" type="checkbox" name="NS21" value="1000" /> <div class="product-name ">Green Stone Jhumkis</div> <div class=" product-price "> Rs 2300</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1HsuGyLiSBuNkSnhJq6zDcpXan/wing-yuk-tak-Luxury-Long-Drop-Earrings-For-Women-White-Imitation-Pearl-Indian-Ethnic-Tassel-Earrings.jpg">
+<input class="iput" type="checkbox" name="NS22" value="1000" /> <div class="product-name ">Long Drop Jhumkis</div> <div class=" product-price "> Rs 2400</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1gm2sG3mTBuNjy1Xbq6yMrVXaf/wing-yuk-tak-Romantic-Champagne-Gold-Color-Moon-Earrings-For-Women-Cubic-Zirconia-Ethnic-Beads-Tassel.jpg">
+<input class="iput" type="checkbox" name="NS23" value="1000" /> <div class="product-name ">Crescent Jhumkis</div> <div class=" product-price "> Rs 2400</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB10gAOG1SSBuNjy0Flq6zBpVXa3/wing-yuk-tak-Fashion-Bohemia-With-Imitation-Pearl-Dangle-Earring-For-Women-White-Gold-Color-Wedding.jpg">
+<input class="iput" type="checkbox" name="NS24" value="1000" /> <div class="product-name ">White Stone Jhumkis</div> <div class=" product-price "> Rs 2400</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1x9NhHbSYBuNjSspiq6xNzpXa6/wing-yuk-tak-Classic-Cubic-Zirconia-Champagne-Gold-Earrings-For-Women-Luxury-Crown-Shaped-Dangle-Drop.jpg">
+<input class="iput" type="checkbox" name="NS25" value="1000" /> <div class="product-name ">Cubic Jhumkis</div> <div class=" product-price "> Rs 2400</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1qoGcHhGYBuNjy0Fnq6x5lpXao/wing-yuk-tak-Ethnic-Imitation-Pearl-Dangle-Drop-Earrings-For-Women-Oorbellen-Charms-Party-Jewellery-Champagne.jpg">
+<input class="iput" type="checkbox" name="NS26" value="1000" /> <div class="product-name ">Triangular Jhumkis</div> <div class=" product-price "> Rs 2400</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1scmHI41YBuNjy1zcq6zNcXXaT/wing-yuk-tak-Fashion-Tortoiseshell-Crystal-Earrings-for-Women-Flower-Stud-Earrings-Fashion-Jewelry-Accessories.jpg">
+<input class="iput" type="checkbox" name="NS27" value="1000" /> <div class="product-name ">Sea Green Dangles</div> <div class=" product-price "> Rs 1975</div> </div>
+ <div class="product"> <img class="img-responsive" src="https://ae01.alicdn.com/kf/HTB1v1_8bO6guuRkSmLyq6AulFXad/wing-yuk-tak-Fashion-Tortoiseshell-Crystal-Earrings-for-Women-Flower-Stud-Earrings-Fashion-Jewelry-Accessories.jpg">
+<input class="iput" type="checkbox" name="NS28" value="1000" /> <div class="product-name ">Green Studded Earrings</div> <div class=" product-price "> Rs 2000</div> </div>
+
+
+
+
+ 
+
+
+
+
+
+</div>
+<br>
+
+<div id="" class="customer-fields" >
+
+<div class=cart-title>Checkout</div>
+<div class=cart-under>Please enter your shipping details to place your order</div>
+<input name="Name" type="text" placeholder="Your Name" required>
+<input name="Phone" type="text" placeholder="Contact Number" required>
+<input name="Address" type="text" placeholder="Shipping Address" required>
+<input name="email" type="email" placeholder="Email" required>
+</div>
+    
+  
+    
+<br>
+
+
+
+
+<div id="b" style="display:none" class="customer-cart b" >
+  
+  
+  
+  
+  <div class="row">
+    <div class="col-xs-6 ccount"> <span id="result"></span> <br> <div class="ccc">Items Selcted</div> </div>
+    <div class="col-xs-6 ttotal"> Rs <span id="total"></span> <br><div class="ttt">Your Total</div></div>
+    <button class="submit-buttom" type="submit" >Checkout</button>
+    
+  </div>
+  
+ </div>
+<div id="a" class="customer-cart a"  >
+  <h4>Please select atleast 3 items to continue. </h4>
+    
+  </div>
+  
+ </div>
+    
+    
+    <br><br>
+    <div class="hidden-fields" > Hidden Fields
+    <input type="text" name="total" id="finall" placeholder="sum to values"/>
+    <input type="text" name="count" id="final"  placeholder="No. of checked boxes"/>
+    <input type="text" id="sku" name="SKU" placeholder="show names here" />
+    </div>
+    
+    
+    
+    
+
+    
+   
+    
+    
+    
+    
+    
+    
+  
+</form>
+
+<div class="loading js-loading is-hidden">
+      <div class="loading-spinner">
+        <svg><circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg>
+      </div>
+    </div>
+
+    
+  </div>
+
+  
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxlkillsHbgVsiNE_dB8dDGlfu6G2NT8R30wGmBCO7UzSdRehw/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const loading = document.querySelector('.js-loading')
+    const successMessage = document.querySelector('.js-success-message')
+    const errorMessage = document.querySelector('.js-error-message')
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      showLoadingIndicator()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => showSuccessMessage(response))
+        .catch(error => showErrorMessage(error))
+    })
+    function showLoadingIndicator () {
+      form.classList.add('is-hidden')
+      loading.classList.remove('is-hidden')
+    }
+    function showSuccessMessage (response) {
+      console.log('Success!', response)
+      setTimeout(() => {
+        successMessage.classList.remove('is-hidden')
+        loading.classList.add('is-hidden')
+      }, 500)
+    }
+    function showErrorMessage (error) {
+      console.error('Error!', error.message)
+      setTimeout(() => {
+        errorMessage.classList.remove('is-hidden')
+        loading.classList.add('is-hidden')
+      }, 500)
+    }
+    
+    
+    
+    
+    
+    
+    
+  </script> <!-- GFORM SCRIPT -->
+    
+    
+  <script>
+      
+      
+   
+    let total = 0;
+[...document.getElementsByClassName('iput')].forEach(function(item) {
+  item.addEventListener('change', function(e) {
+    if (e.target.checked) {
+      total += parseInt(e.target.value, 10)
+    } else {
+      total -= parseInt(e.target.value, 10)
+    }
+    document.getElementById('total').innerHTML = total
+    
+    document.getElementById("finall").value = total ;
+  })
+
+})
+
+ 
+ 
+ 
+
+      function showChecked(){
+		var length = document.querySelectorAll("input:checked").length,
+		text = "Total Number of Items Selected = "
+		
+    document.getElementById("result").textContent = length;
+		document.getElementById("final").value = length;
+}
+ document.querySelectorAll("input[type=checkbox]").forEach(i=>{
+  i.onclick = function(){
+  showChecked();
+ }
+});
+  
+
+
+
+
+var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+
+// Function that will be called when anchor is clicked
+Array.from(checkboxes).forEach(function(item) {
+  item.addEventListener("click", checkboxClick);
+});
+
+function checkboxClick() {
+  var checked_names = [];
+
+  Array.from(checkboxes).forEach(function(item) {
+    if (item.checked) {
+      checked_names.push(item.name);
+    }
+  });
+
+  document.getElementById('sku').value = checked_names.join(', ');
+}
+
+
+      
+      </script>
+      
+ <script>
+    var a = document.getElementById("a");
+    var b = document.getElementById('b');
+    var checked = document.querySelectorAll("input.iput:checked").length;
+    var checkboxes = document.querySelectorAll("input.iput");
+    for(let i = 0; i < checkboxes.length; i++){
+      checkboxes[i].addEventListener("click", function(e){
+        if(this.checked){
+          checked++;
+          if(checked>=3){
+            a.style.display = "none";
+            b.style.display = "block";
+          }
+        } else {
+           checked--;
+          if(checked<3){
+            a.style.display = "block";
+            b.style.display = "none";
+          }
+        }
+      });
+    }
+    </script>
+
+
+<script>
+function validation() {
+ var isValid = true;
+ //perform your validation on form and update isValid variable accordingly.
+
+ if(isValid) {
+    window.location = 'http://www.omgjewelz.com/thankyou-set/'; // your desired location
+ }
+
+ return false; // always return false to prevent form from submission.
+}
+</script>
+
+</body>
+</html>
+
