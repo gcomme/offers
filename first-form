@@ -66,9 +66,17 @@ input[type="checkbox"]:after {
   padding:10px;
     color:white; font-weight:300;}
 
+.offer-header { background-color:#eee; text-align:center; letter-spacing:1.5px; padding:25px 10px 25px 10px; }
 
+.offer-title { font-size:20px;}
  
-   
+  input[type=text], input[type=email] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top:5px;
+} 
   
   
 
@@ -84,6 +92,17 @@ input[type="checkbox"]:after {
 <img class="img-responsive logo" src="http://i0.wp.com/www.omgjewelz.com/wp-content/uploads/2018/02/OMG.jpg" >
 </div>
 
+
+<div class="offer-header">  
+<div class="offer-title"> CREATE YOUR OWN SET </div> 
+<div class="offer-description">  Pick your favorite pieces from our current collection to create your own set ! </div> <br>
+
+Any 3 items for Rs 3000 <br>
+Any 4 items for Rs 4000 <br>
+Any 5 items for Rs 5000 <br>
+Any 6 items for Rs 6000<br><br>
+and so on ... you can choose as many items as you like<br>
+</div>
 
   <div class="form-container">
 	  
