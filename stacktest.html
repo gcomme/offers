@@ -9,21 +9,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <script>
-function myFunction() {
-  $.post("https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/", {
-    Name: $("input[name='Name']").val(),
-    City: $("input[name='City']").val(),
-    Address: $("input[name='Address']").val(),
-    Phone: $("input[name='Phone']").val(),
-    Count: $("input[name='Count']").val(),
-    Sku: $("input[name='Sku']").val(),
-    Total: $("input[name='Total']").val() // <- get data from input
-  });
-  
-  location.href = "http://www.google.com";
-}
-<script>
+
     
     
     </head>
@@ -41,7 +27,22 @@ function myFunction() {
 
 
 <button onclick="myFunction()">Submit now </button>
-      
+ 
+    <script>
+function myFunction() {
+  $.post("https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/", {
+    Name: $("input[name='Name']").val(),
+    City: $("input[name='City']").val(),
+    Address: $("input[name='Address']").val(),
+    Phone: $("input[name='Phone']").val(),
+    Count: $("input[name='Count']").val(),
+    Sku: $("input[name='Sku']").val(),
+    Total: $("input[name='Total']").val() // <- get data from input
+  });
+  
+  location.href = "http://www.google.com";
+}
+<script>    
       
       
   </body>
