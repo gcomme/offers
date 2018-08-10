@@ -1,5 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
+
 <div>
 <input type="checkbox" name="apple"> Apple
 <input type="checkbox" name="mango"> Orange
@@ -11,6 +13,11 @@
 
 
 <script>
+    
+ 
+$(document).ready(function() {
+    
+    
 function myFunction(){
     $.post( "https://hooks.zapier.com/hooks/catch/821338/gw1ozj/",{
         apple: "apple",
@@ -19,4 +26,6 @@ function myFunction(){
     //this can be also in onSucces() in ajax
     location.href = "http://www.google.com";
 }
+});    
+  
 <script>
