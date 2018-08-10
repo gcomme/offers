@@ -8,7 +8,34 @@
     <title>Bootstrap 101 Template</title>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+      <script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("p").hide();
+    });
+    $("#show").click(function(){
+        $("p").show();
+    });
+});
+</script>
     
+ 
+    <script>
+function myFunction() {
+  $.post("https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/", {
+    Name: $("input[name='Name']").val(),
+    City: $("input[name='City']").val(),
+    Address: $("input[name='Address']").val(),
+    Phone: $("input[name='Phone']").val(),
+    Count: $("input[name='Count']").val(),
+    Sku: $("input[name='Sku']").val(),
+    Total: $("input[name='Total']").val() // <- get data from input
+  });
+  
+  location.href = "http://www.google.com";
+}
+</script> 
 
     
     
@@ -27,22 +54,16 @@
 
 
 <button onclick="myFunction()">Submit now </button>
- 
-    <script>
-function myFunction() {
-  $.post("https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/", {
-    Name: $("input[name='Name']").val(),
-    City: $("input[name='City']").val(),
-    Address: $("input[name='Address']").val(),
-    Phone: $("input[name='Phone']").val(),
-    Count: $("input[name='Count']").val(),
-    Sku: $("input[name='Sku']").val(),
-    Total: $("input[name='Total']").val() // <- get data from input
-  });
-  
-  location.href = "http://www.google.com";
-}
-</script>    
+    
+    
+ ....
+    
+    <p>If you click on the "Hide" button, I will disappear.</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+    
+     
       
       
   </body>
