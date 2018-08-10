@@ -1,0 +1,29 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<input type="text" name="Name" placeholder="Your Name">
+<input type="text" name="City" placeholder="City">
+<input type="text" name="Address" placeholder="Address">
+<input type="text" name="Phone" placeholder="Phone Number">
+
+<input type="text" name="Count" />
+<input type="text" name="Sku" />
+<input type="text" name="Total" />
+
+
+<button onclick="myFunction()">Submit </button>
+
+<script>
+function myFunction() {
+  $.post("https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/", {
+    Name: $("input[name='Name']").val(),
+    City: $("input[name='City']").val(),
+    Address: $("input[name='Address']").val(),
+    Phone: $("input[name='Phone']").val(),
+    Count: $("input[name='Count']").val(),
+    Sku: $("input[name='Sku']").val(),
+    Total: $("input[name='Total']").val() // <- get data from input
+  });
+  
+  location.href = "http://www.google.com";
+}
+<script>
