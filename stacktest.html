@@ -1,28 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   
-      <script>
-$(document).ready(function(){
-    $("#hide").click(function(){
-        $("p").hide();
-    });
-    $("#show").click(function(){
-        $("p").show();
-    });
-});
-</script>
-    
- 
-    <script>
-function myFunction() {
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+   function myFunction() {
   $.post("https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/", {
     Name: $("input[name='Name']").val(),
     City: $("input[name='City']").val(),
@@ -35,13 +17,10 @@ function myFunction() {
   
   location.href = "http://www.google.com";
 }
-</script> 
 
-    
-    
-    </head>
-  <body>
-
+</script>
+</head>
+<body>
 
 <input type="text" name="Name" placeholder="Your Name">
 <input type="text" name="City" placeholder="City">
@@ -54,19 +33,6 @@ function myFunction() {
 
 
 <button onclick="myFunction()">Submit now </button>
-    
-    
- ....
-    
-    <p>If you click on the "Hide" button, I will disappear.</p>
 
-<button id="hide">Hide</button>
-<button id="show">Show</button>
-    
-     
-      
-      
-  </body>
+</body>
 </html>
-
-
