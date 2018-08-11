@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>OMG Jewelz | Jewelery & Accessories | Shop</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+   <link rel="stylesheet"  type="text/css"  href="http://www.omgjewelz.com/tumblr-shopcss">
+	  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script> // Filter Products
+$(document).ready(function() {
+
+  $(".btn-earrings").click(function() {
+    $(".rings, .necklaces, .bracelets, .bestsellers").hide();
+    $(".earrings").show();
+  });
+
+  $(".btn-necklaces").click(function() {
+    $(".rings, .earrings, .bracelets, .bestsellers").hide();
+    $(".necklaces").show();
+  });
+
+  $(".btn-bracelets").click(function() {
+    $(".rings, .earrings, .necklaces, .bestsellers").hide();
+    $(".bracelets").show();
+  });
+
+  $(".btn-bestsellers").click(function() {
+    $(".rings, .earrings, .necklaces, .bracelets").hide(500);
+    $(".bestsellers").show(500);
+
+    $(".btn-rings").click(function() {
+      $(".earrings, .necklaces, .bracelets, .bestsellers").hide(500);
+      $(".rings").show(500);
+    });
+
+    $(".btn-all").click(function() {
+      $(".product").show(500);
+    });
+
+
+
+
+
+  });
+
+});
+
+</script> <!-- Filter Products -->
+
+<script> // Get SKU List from =names into hidden fields
+$(document).ready(function() {
+$('input[type="checkbox"]').change(function(){
+    $('#hidden-skus')
+        .val($('input[type="checkbox"]:checked')
+        .map(function(){
+            return this.name;
+        }).get().join(', '));
+}).change();
+
+});
+</script> <!-- Get SKU Lists-->
+
+<script> <!-- Count Boxes -->
+$(document).ready(function() {
+
+  var $checkboxes = $('input[type="checkbox"]');
+
+  $checkboxes.change(function() {
+    var countCheckedCheckboxes = $checkboxes.filter(':checked').length;
+    $('#show-count').text(countCheckedCheckboxes);
+
+    $('#hide-count').val(countCheckedCheckboxes);
+  });
+
+});
+
+</script> <!-- Total Count Hidden + Shown -->
+
+<script>
+$(document).ready(function() {
+$("input[type=checkbox]").click(function() {
+  var sum = 0;
+  $("input[type=checkbox]:checked").each(function(index) {
+    sum += Number($(this).val());
+  });
+  $("#show-total").html(sum);
+  $('#hidden-total').val(sum);
+});
+
+});
+
+</script> <!-- Total Price  -->
+	  
+	  
+<script> <!-- Show hide checkout field -->
+  
+  $(document).ready(function(){
+    $(".btn-checkout").click(function(){
+    $(".btn-checkout, .cart-bar").hide();
+     $(".checkout-fields, .btn-checkout-close").show(500);  });
+    
+     $(".btn-checkout-close").click(function(){
+        $(".btn-checkout, .cart-bar").show();
+        $(".checkout-fields").hide();
+    });
+    
+ 
+    
+    
+    
+});
+  
+</script> <!-- Show / Hide Checkout Fields   -->
+
+<script>
+   function myFunction() {
+  $.post("https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/", {
+    Name: $("input[name='Name']").val(),
+    City: $("input[name='City']").val(),
+    Address: $("input[name='Address']").val(),
+    Phone: $("input[name='Phone']").val(),
+    Count: $("input[name='Count']").val(),
+    Sku: $("input[name='Sku']").val(),
+    Total: $("input[name='Total']").val() // <- get data from input
+  });
+  
+  location.href = "http://omgjewelz.com/thankyou-set/?id=tshop";
+}
+</script> <!-- Submit to Wekhook  -->
+
+
+
+<!-- <style>
+	* {font-family: 'Lato', sans-serif; letter-spacing:1px; }
+.wholepage {
+	background-color: #eee;
+}
+
+/* nav css */
+
+.topnav {
+	margin-top: px;
+	background-color: #eee;
+	padding: 15px;
+	text-align: center;
+}
+
+.nav-item {
+	margin-bottom: 5px;
+	padding: 4px 15px 4px 15px;
+	background-color: white;
+	border-radius: 20px;
+	display: inline-block;
+}
+
+/*   */
+
+.empty-div {
+	padding-top: 100px;
+	padding-bottom: 200px;
+}
+
+
+
+
+.product {
+	background-color: white;
+	margin-bottom: 50px;
+	margin-right: 5px;
+	margin-left: 5px;
+	border-radius: 5px;
+	height: px;
+}
+
+/* .product {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+} */
+
+.product-info {
+	border-top: #fbfbfb;
+	border-top-style: solid;
+	width: 100%;
+	color: blc;
+	padding: 10px 0px 20px 15px;
+}
+
+
+input {
+	display: block;
+	float: right;
+}
+
+input[type="checkbox"] {
+	visibility: hidden;
+	float: right;
+}
+
+.product input[type="checkbox"]:after {
+	content: "+SELECT";
+	letter-spacing: 1px;
+	color: bla;
+	background-color: #eee;
+	visibility: visible;
+	margin-right: 10px;
+	padding: 10px;
+	float: right;
+	font-weight: 300;
+	border-radius: 3px;
+}
+
+.product input[type="checkbox"]:checked:after {
+	content: "SELECTED";
+	font-size: 15px;
+	background-color: black;
+	padding: 10px;
+	color: white;
+	font-weight: 300;
+}
+
+.cart-bar {
+	position: fixed !important;
+	left: 0!important;
+	bottom: 0!important;
+	width: 100%!important;
+	text-align: center;
+	font-size: 15px;
+	background-color: black;
+	color: white;
+	font-weight: 400;
+}
+
+.checkout-fields {
+  background-color:black;
+  display:none;
+  position: fixed !important;
+	left: 0!important;
+	bottom: 0!important;
+	width: 100%!important;
+	padding:25px;
+  
+}
+
+.btn-checkout-close {display:none; font-size:15px;
+    text-align: center;
+    color: white;
+    padding-bottom: 20px;
+  
+  
+}
+
+.btn-placeorder {
+    background-color: green;
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    font-size: 18px;
+  
+}
+	
+	.checkout-fields input {
+	  width :100%;
+	  color:black;
+	  margin-bottom:10px;
+	  padding:5px;}
+	
+.cart {
+    min-heght: 100% ;overflow-y: scroll;
+}
+
+.cart-label { font-size:10px; font-weight : 400; padding-bottom:15px; }
+
+.btn-checkout-close {display:none; padding:15px; font-size:15px; }
+
+.hidden-fields {display:none;}
+
+	
+</style>
+--> 
+
+
+  </head>
+  <body>
+            <!-- START CODING -->
+
+
+
+<div class="wholepage">
+<div class="products">
+<div class="empty-div">
+
+ 
+<input type="checkbox" name=" NS25" value="1000"> 
+<input type="checkbox" name=" E323" value="1000"> 
+<input type="checkbox" name=" R233" value="1000"> 
+
+
+
+  
+  
+</div>
+  
+</div>
+  
+</div>
+
+	
+	
+
+<div class="checkout-fields">
+<div class="btn-checkout-close"> hide </div>
+<input type="text" name="Name" placeholder="Your Name">
+<input type="text" name="City" placeholder="City">
+<input type="text" name="Address" placeholder="Address">
+<input type="text" name="Phone" placeholder="Phone Number">
+<button class="btn-placeorder" onclick="myFunction()" > submit </button>
+<!-- <button onclick="myFunction()">Submit now </button> -->
+</div>
+<div class="cart-bar">
+  
+<div class="row">
+
+<div class="col-xs-4">
+<span id="show-count">0</span><br>
+<span class="cart-label" > </span>
+</div>
+<div class="col-xs-4">
+Rs <span id="show-total">0</span><br>
+<span class="cart-label" ></span>
+</div>
+<div style="padding-top:10px;" class="col-xs-4">
+<div class="btn-checkout">
+Checkout
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<!-- Hidden Fields -->
+<div class="hidden-fields" >
+<!-- <input type="text" name="hidden-count" id="hide-count" />
+<input type="text" name="hidden-skus" id="hidden-skus" />
+<input type="text" name="hidden-total" id="hidden-total" /> -->
+
+<input type="text" name="Count" id="hide-count" />
+<input type="text" name="Sku" id="hidden-skus" />
+<input type="text" name="Total" id="hidden-total" />
+
+</div>
+
+
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  
+  
+ <!-- Clicky Code -->
+<script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100946078); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100946078ns.gif" /></p></noscript>
+  
+  
+    
+    
+  </body>
+</html>
+
+
