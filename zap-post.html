@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Zapier Contact Form</title>
+</head>
+<body>
+  <form id="myForm">
+    <input type="text" name="full-name" placeholder="What's your name?">
+    <input type="email" name="email-address" required placeholder="What's your email address?">
+    <input type="submit" value="Submit" id="Form-submit"/>
+  </form>
+
+  <!-- Load jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+// POST form data to zapier on submit
+$('#myForm').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        url:'https://sokt.io/2ZAqtuT3Sb8tpy3iubLT/personal-omgjewelz/',
+        type:'POST',
+        data:$('#myForm').serialize(),
+        success:function(){
+          // Redirect to another success page
+          window.location = "http://google.com";
+        }
+    });
+});
+</script>
+</body>
+</html>
